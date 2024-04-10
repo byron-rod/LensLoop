@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import SigninForm from "./_auth/forms/SigninForm";
 import { Home } from "./_root/pages";
@@ -21,6 +22,8 @@ const App = () => {
           <Route index element={<Home />} />
         </Route>
       </Routes>
+
+      <Toaster />
     </main>
   );
 };
