@@ -17,16 +17,16 @@ const LeftSidebar = () => {
   }, [isSuccess, navigate]);
   return (
     <nav className="leftsidebar">
-      <div className="flex flex-col gap-11">
+      <div className="flex flex-col gap-6">
         <Link to="/" className="flex gap-3 items-center">
           <img
-            src="../../../../public/assets/images/logo.svg"
+            src="../../../../public/assets/images/logo2.svg"
             alt="logo"
-            width={170}
+            width={150}
             height={36}
           />
         </Link>
-        <Link to={`/profile/${user.id}`} className="flex gap-3 items-center">
+        <Link to={`/profile/${user.id}`} className="flex gap-2 items-center">
           <img
             src={
               user.imageUrl ||
