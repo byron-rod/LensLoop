@@ -20,6 +20,7 @@ import {
   useSignInAccount,
 } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
+import logo2 from "/assets/images/logo2.svg";
 
 function SignupForm() {
   const { toast } = useToast();
@@ -84,7 +85,13 @@ function SignupForm() {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <img src="../../../public/assets/images/logo.svg" alt="logo" />
+        <img
+          src={logo2}
+          alt="logo"
+          height={180}
+          width={180}
+          className="mt-4 mb-[-60px]"
+        />
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">Create new account</h2>
         <p className="text-light-3 small-medium md:base-regular">
           To use LensLoop enter your details
@@ -92,7 +99,7 @@ function SignupForm() {
 
         <form
           onSubmit={form.handleSubmit(handleSignup)}
-          className="flex flex-col gap-5 w-full mt-4"
+          className="flex flex-col gap-3 w-full mt-4"
         >
           <FormField
             control={form.control}

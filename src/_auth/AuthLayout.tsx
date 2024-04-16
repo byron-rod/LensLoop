@@ -1,4 +1,5 @@
 import { Outlet, Navigate } from "react-router-dom";
+import sideimg from "/assets/images/side-img.svg";
 
 function AuthLayout() {
   const isAuthenticated = false;
@@ -14,7 +15,7 @@ function AuthLayout() {
           </section>
 
           <img
-            src="../../public/assets/images/side-img.svg"
+            src={sideimg}
             alt="sign up background image"
             className="hidden xl:block h-screen w-1/2 object-cover bg-no-repeat"
           />

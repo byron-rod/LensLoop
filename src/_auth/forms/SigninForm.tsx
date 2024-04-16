@@ -18,6 +18,7 @@ import { SigninValidation } from "@/lib/validation";
 import Loader from "@/components/ui/shared/Loader";
 import { useSignInAccount } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
+import logo2 from "/assets/images/logo2.svg";
 
 function SigninForm() {
   const { toast } = useToast();
@@ -63,7 +64,7 @@ function SigninForm() {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <img src="/assets/images/logo.svg" alt="logo" />
+        <img src={logo2} alt="logo" height={250} width={250} />
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Log in to your account

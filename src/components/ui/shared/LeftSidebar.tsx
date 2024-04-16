@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useUserContext } from "@/context/AuthContext.tsx";
 import { INavLink } from "@/types/index.ts";
 import { sidebarLinks } from "@/constants/index.ts";
+import logo2 from "/assets/images/logo2.svg";
+import logout from "/assets/icons/logout.svg";
 
 const LeftSidebar = () => {
   const { mutate: signOut, isSuccess } = useSignOutAccount();
@@ -19,18 +21,12 @@ const LeftSidebar = () => {
     <nav className="leftsidebar">
       <div className="flex flex-col gap-6">
         <Link to="/" className="flex gap-3 items-center">
-          <img
-            src="../../../../public/assets/images/logo2.svg"
-            alt="logo"
-            width={150}
-            height={36}
-          />
+          <img src={logo2} alt="logo" width={150} height={36} />
         </Link>
         <Link to={`/profile/${user.id}`} className="flex gap-2 items-center">
           <img
             src={
-              user.imageUrl ||
-              "../../../../public/assets/icons/profile-placeholder.svg"
+              user.imageUrl || "/public/assets/icons/profile-placeholder.svg"
             }
             alt="profile picture"
             className="h-14 w-14 rounded-full"
@@ -74,7 +70,7 @@ const LeftSidebar = () => {
         className="shad-button_ghost"
         onClick={() => signOut()}
       >
-        <img src="../../../../public/assets/icons/logout.svg" alt="logout" />
+        <img src={logout} alt="logout" />
         <p className="small-medium lg:base-medium">Logout</p>
       </Button>
     </nav>

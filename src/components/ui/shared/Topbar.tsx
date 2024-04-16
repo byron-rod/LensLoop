@@ -3,6 +3,8 @@ import { Button } from "../button.tsx";
 import { useSignOutAccount } from "@/lib/react-query/queriesAndMutations.ts";
 import { useEffect } from "react";
 import { useUserContext } from "@/context/AuthContext.tsx";
+import logo2 from "/assets/images/logo2.svg";
+import logout from "/assets/icons/logout.svg";
 
 const Topbar = () => {
   const { mutate: signOut, isSuccess } = useSignOutAccount();
@@ -15,14 +17,9 @@ const Topbar = () => {
 
   return (
     <section className="topbar">
-      <div className="flex-between py-4 -px-5 ml-5">
+      <div className="flex-between py-1 px-4 ml-3">
         <Link to="/" className="flex gap-3 items-center">
-          <img
-            src="../../../../public/assets/images/logo2.svg"
-            alt="logo"
-            width={110}
-            height={125}
-          />
+          <img src={logo2} alt="logo" width={110} height={125} />
         </Link>
         <div className="flex gap-4">
           <Button
@@ -30,10 +27,7 @@ const Topbar = () => {
             className="shad-button_ghost"
             onClick={() => signOut()}
           >
-            <img
-              src="../../../../public/assets/icons/logout.svg"
-              alt="logout"
-            />
+            <img src={logout} alt="logout" />
           </Button>
           <Link to={`/profile/${user.id}`} className="flex-center gap-3">
             <img
