@@ -4,7 +4,6 @@ import {
   useMutation,
   useQueryClient,
   useInfiniteQuery,
-  useSuspenseInfiniteQuery,
 } from "@tanstack/react-query";
 import {
   createPost,
