@@ -139,6 +139,7 @@ export async function createPost(post: INewPost) {
   }
 }
 
+// ============================== UPLOAD FILE
 export async function uploadFile(file: File) {
   try {
     const uploadedFile = await storage.createFile(
@@ -146,22 +147,27 @@ export async function uploadFile(file: File) {
       ID.unique(),
       file
     );
+
     return uploadedFile;
   } catch (error) {
     console.log(error);
   }
 }
 
-export async function getFilePreview(fileId: string) {
+// ============================== GET FILE URL
+export function getFilePreview(fileId: string) {
   try {
     const fileUrl = storage.getFilePreview(
       appwriteConfig.storageId,
       fileId,
-      200,
-      200,
-      "fit",
+      2000,
+      2000,
+      "top",
       100
     );
+
+    if (!fileUrl) throw Error;
+
     return fileUrl;
   } catch (error) {
     console.log(error);
@@ -176,4 +182,14 @@ export async function deleteFile(fileId: string) {
   } catch (error) {
     console.log(error);
   }
+}
+
+export async function getRecentPosts() {
+  const posts = await databases.listDocuments(
+    appwriteConfig.databaseId,
+    appwriteConfig.postCollectionId,
+    [Query.orderDesc("$createdAt"), Query.limit(20)]
+  );
+  if (!posts) throw Error;
+  return posts;
 }
