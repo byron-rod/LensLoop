@@ -15,7 +15,7 @@ const LeftSidebar = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    if (isSuccess) navigate(0);
+    if (isSuccess) navigate("/");
   }, [isSuccess, navigate]);
   return (
     <nav className="leftsidebar">

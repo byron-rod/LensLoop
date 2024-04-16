@@ -12,7 +12,7 @@ const Topbar = () => {
   const { user } = useUserContext();
 
   useEffect(() => {
-    if (isSuccess) navigate(0);
+    if (isSuccess) navigate("/");
   }, [isSuccess, navigate]);
 
   return (
@@ -32,8 +32,7 @@ const Topbar = () => {
           <Link to={`/profile/${user.id}`} className="flex-center gap-3">
             <img
               src={
-                user.imageUrl ||
-                "../../../../public/assets/icons/profile-placeholder.svg"
+                user.imageUrl || "/public/assets/icons/profile-placeholder.svg"
               }
               alt="profile picture"
               className="h-8 w-8 rounded-full mr-5"
